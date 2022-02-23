@@ -1,0 +1,22 @@
+.navbar {
+  background: rgb(20, 20, 20);
+  padding: 0.5rem;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  &__items {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    gap: 1.5rem;
+  }
+
+  &__item {
+    color: white;
+    text-decoration: none;
+  }
+}
