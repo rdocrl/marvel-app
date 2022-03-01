@@ -1,15 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import useFavorite from '../../hooks/useFavorite';
 import Card from '../Card';
+import { resourceTypes } from '../../constants';
 import './FavoritesPage.scss';
 
 const FavoritesPage = () => {
   const navigate = useNavigate();
   const [favorites, toggleFavorite] = useFavorite();
 
-  const favoriteComics = favorites.filter((f) => f.type === 'comics');
-  const favoriteCharacters = favorites.filter((f) => f.type === 'characters');
-  const favoriteStories = favorites.filter((f) => f.type === 'stories');
+  const favoriteComics = favorites.filter((f) => f.type === resourceTypes.COMIC);
+  const favoriteCharacters = favorites.filter((f) => f.type === resourceTypes.CHARACTER);
+  const favoriteStories = favorites.filter((f) => f.type === resourceTypes.STORY);
 
   const comicsSection = favoriteComics.length ? (
     <div className="favorites">
@@ -24,7 +25,7 @@ const FavoritesPage = () => {
             id={c.id}
             isFavorite={favorites.some((f) => f.id === c.id)}
             onToggleFavorite={toggleFavorite}
-            type="comics"
+            type={resourceTypes.COMIC}
           />
         ))}
       </section>
@@ -44,7 +45,7 @@ const FavoritesPage = () => {
             id={c.id}
             isFavorite={favorites.some((f) => f.id === c.id)}
             onToggleFavorite={toggleFavorite}
-            type="characters"
+            type={resourceTypes.CHARACTER}
           />
         ))}
       </section>
@@ -64,7 +65,7 @@ const FavoritesPage = () => {
             id={c.id}
             isFavorite={favorites.some((f) => f.id === c.id)}
             onToggleFavorite={toggleFavorite}
-            type="stories"
+            type={resourceTypes.STORY}
           />
         ))}
       </section>

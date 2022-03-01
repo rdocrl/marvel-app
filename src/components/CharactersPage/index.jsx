@@ -9,6 +9,7 @@ import OrderByBtn from '../OrderByBtn';
 import ErrorComponent from '../Error';
 import { getApiUrl } from '../../helpers';
 import { characterFilterOptions } from './constants';
+import { resourceTypes } from '../../constants';
 import './CharactersPage.scss';
 
 const CharactersPage = () => {
@@ -70,7 +71,7 @@ const CharactersPage = () => {
               id={c.id}
               isFavorite={favorites.some((f) => f.id === c.id)}
               onToggleFavorite={toggleFavorite}
-              type="characters"
+              type={resourceTypes.CHARACTER}
             />
           ))}
         </section>

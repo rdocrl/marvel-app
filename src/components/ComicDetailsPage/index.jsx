@@ -8,6 +8,7 @@ import Background from '../Background';
 import Detail from '../Detail';
 import Loading from '../Loading';
 import ErrorComponent from '../Error';
+import { resourceTypes } from '../../constants';
 import './ComicDetailsPage.scss';
 
 const ComicDetailsPage = () => {
@@ -73,7 +74,7 @@ const ComicDetailsPage = () => {
               id={c.id}
               isFavorite={favorites.some((f) => f.id === c.id)}
               onToggleFavorite={toggleFavorite}
-              type="characters"
+              type={resourceTypes.CHARACTER}
             />
           ))}
         </div>
@@ -90,7 +91,7 @@ const ComicDetailsPage = () => {
               id={s.id}
               isFavorite={favorites.some((f) => f.id === s.id)}
               onToggleFavorite={toggleFavorite}
-              type="stories"
+              type={resourceTypes.STORY}
             />
           ))}
         </div>

@@ -9,6 +9,7 @@ import OrderByBtn from '../OrderByBtn';
 import ErrorComponent from '../Error';
 import { getApiUrl } from '../../helpers';
 import { comicFilterOptions } from './constants';
+import { resourceTypes } from '../../constants';
 import './ComicsPage.scss';
 
 const ComicsPage = () => {
@@ -70,7 +71,7 @@ const ComicsPage = () => {
               id={c.id}
               isFavorite={favorites.some((f) => f.id === c.id)}
               onToggleFavorite={toggleFavorite}
-              type="comics"
+              type={resourceTypes.COMIC}
             />
           ))}
         </section>
