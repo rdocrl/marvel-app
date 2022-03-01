@@ -40,3 +40,16 @@
     align-items: center;
   }
 }
+
+
+@media screen and (max-width: 480px) {
+  .characters {
+    padding: 0;
+
+    &__header {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}

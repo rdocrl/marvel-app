@@ -23,3 +23,12 @@
     text-decoration: none;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0;
+   &__items {
+     gap: 0.5rem;
+   }
+  }
+}

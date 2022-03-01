@@ -7,3 +7,14 @@
     color: #fff;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .detail {
+    flex-direction: column;
+    gap: 0;
+
+    &__info {
+      text-align: center;
+    }
+  }
+}
