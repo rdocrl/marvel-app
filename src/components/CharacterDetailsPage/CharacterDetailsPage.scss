@@ -1,0 +1,15 @@
+.character-details {
+  color: #fff;
+
+  h2 {
+    text-align: left;
+  }
+
+  &__list {
+    display: flex;
+    gap: 2rem;
+    overflow: auto;
+    margin-top: 1rem;
+    color: white;
+  }
+}
