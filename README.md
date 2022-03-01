@@ -18,3 +18,7 @@ Run the application using
 ### `npm test`
 
 Open http://localhost:3000 to view it in your browser.
+
+## Deployed app
+
+The deployed app can be found at https://marvel-app-cincel.netlify.app/
