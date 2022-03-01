@@ -1,0 +1,9 @@
+.detail {
+  display: flex;
+  gap: 2rem;
+
+  &__info {
+    text-align: left;
+    color: #fff;
+  }
+}
