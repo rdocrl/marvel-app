@@ -5,7 +5,10 @@ const useFavorite = () => {
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem('favorites');
-    setFavorites(setFavorites ? JSON.parse(storedFavorites) : []);
+
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
   }, []);
 
   const toggleFavorite = (favorite) => {
