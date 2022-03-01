@@ -1,0 +1,29 @@
+.filter {
+  color: gray;
+  font-size: 0.8rem;
+
+  &__types {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__text {
+    margin-top: 8px;
+    background: white;
+    border-radius: 3px;
+    height: 2rem;
+    display: flex;
+    padding: 4px;
+    gap: 6px;
+    border: 1px solid rgb(240, 240, 240);
+
+    input {
+      border: none;
+
+      &:focus {
+        outline: none;
+        color: gray;
+      }
+    }
+  }
+}
