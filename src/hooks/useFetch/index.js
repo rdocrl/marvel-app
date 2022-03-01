@@ -14,14 +14,28 @@ const useFetch = (url, debounceTime = 0) => {
       setData(null);
       setError(null);
       fetch(url, { signal: abortController.signal })
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) {
+            console.error(res.status, res.statusText);
+            throw 'Error in network request';
+          }
+          return res.json();
+        })
         .then((json) => {
-          json?.data?.results && setData(json.data.results);
+          if (!abortController.signal.aborted) {
+            json?.data?.results && setData(json.data.results);
+          }
         })
         .catch((err) => {
-          setError(err);
+          if (!abortController.signal.aborted) {
+            setError(err);
+          }
         })
-        .finally(() => setLoading(false));
+        .finally(() => {
+          if (!abortController.signal.aborted) {
+            setLoading(false);
+          }
+        });
     };
 
     debounceTime ? debounce(fetchData, debounceTime)() : fetchData();
