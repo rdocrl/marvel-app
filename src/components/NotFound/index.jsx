@@ -4,7 +4,7 @@ const NotFound = () => {
   return (
     <>
       <h2>404 - Not found</h2>
-      <img src={notFound} alt="oop - 404 not found" width={'100%'} />
+      <img src={notFound} alt="oop - 404 not found" width={300} />
     </>
   );
 };
