@@ -1,0 +1,29 @@
+.background {
+  flex: 1;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &__opacity {
+    position: absolute;
+    background: #000;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 98%;
+  }
+
+  > div:not(.background__opacity) {
+    position: relative;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
