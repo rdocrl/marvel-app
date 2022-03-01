@@ -1,0 +1,25 @@
+.card {
+  cursor: pointer;
+  width: 206px;
+
+  &__thumbnail {
+    transition: border-radius 300ms;
+
+    &:hover {
+      border-radius: 12px;
+    }
+
+    &--no-thumbnail {
+      width: 216px;
+      height: 316px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('../../assets/no-thumbnail.jpg');
+    }
+  }
+
+  &__title {
+    text-align: left;
+  }
+}
