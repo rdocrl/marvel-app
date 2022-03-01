@@ -14,6 +14,9 @@ const NavBar = () => {
           <Link to="/characters" className="navbar__item">
             Characters
           </Link>
+          <Link to="/favorites" className="navbar__item">
+            Favorites
+          </Link>
         </div>
       </div>
     </nav>

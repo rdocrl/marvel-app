@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getApiAuth, getApiUrl } from '../../helpers';
 import useFetch from '../../hooks/useFetch';
+import useFavorite from '../../hooks/useFavorite';
 import Card from '../Card';
 import Background from '../Background';
 import Detail from '../Detail';
@@ -15,6 +16,7 @@ const ComicDetailsPage = () => {
   const [comics, isLoading, error] = useFetch(getApiUrl(`/comics/${id}`));
   const [characters, setCharacters] = useState([]);
   const [stories, setStories] = useState([]);
+  const [favorites, toggleFavorite] = useFavorite();
 
   useEffect(() => {
     if (!comics) {
@@ -68,6 +70,10 @@ const ComicDetailsPage = () => {
               title={c.name}
               thumbnail={`${c.thumbnail.path}/portrait_incredible.${c.thumbnail.extension}`}
               onClick={() => navigate(`/characters/${c.id}`)}
+              id={c.id}
+              isFavorite={favorites.some((f) => f.id === c.id)}
+              onToggleFavorite={toggleFavorite}
+              type="characters"
             />
           ))}
         </div>
@@ -81,6 +87,10 @@ const ComicDetailsPage = () => {
                   ? `${s.thumbnail.path}/portrait_incredible.${s.thumbnail.extension}`
                   : null
               }
+              id={s.id}
+              isFavorite={favorites.some((f) => f.id === s.id)}
+              onToggleFavorite={toggleFavorite}
+              type="stories"
             />
           ))}
         </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import useFavorite from '../../hooks/useFavorite';
 import Card from '../Card';
 import Loading from '../Loading';
 import Filter from '../Filter';
@@ -25,6 +26,7 @@ const CharactersPage = () => {
     ),
     filterText ? 1000 : 0
   );
+  const [favorites, toggleFavorite] = useFavorite();
 
   useEffect(() => {
     if (filterText?.current) {
@@ -65,6 +67,10 @@ const CharactersPage = () => {
               title={c.name}
               thumbnail={`${c.thumbnail.path}/portrait_incredible.${c.thumbnail.extension}`}
               onClick={() => navigate(`/characters/${c.id}`)}
+              id={c.id}
+              isFavorite={favorites.some((f) => f.id === c.id)}
+              onToggleFavorite={toggleFavorite}
+              type="characters"
             />
           ))}
         </section>

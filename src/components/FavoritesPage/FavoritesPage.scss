@@ -1,0 +1,17 @@
+.favorites {
+  padding: 1em;
+
+  &__list {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .favorites {
+    padding: 0;
+  }
+}

@@ -6,6 +6,7 @@ import CharactersPage from './components/CharactersPage';
 import NotFound from './components/NotFound';
 import ComicDetailsPage from './components/ComicDetailsPage';
 import CharacterDetailsPage from './components/CharacterDetailsPage';
+import FavoritesPage from './components/FavoritesPage';
 import './App.scss';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/characters" element={<CharactersPage />} />
           <Route path="/comics/:id" element={<ComicDetailsPage />} />
           <Route path="/characters/:id" element={<CharacterDetailsPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

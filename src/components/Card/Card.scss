@@ -1,6 +1,7 @@
 .card {
   cursor: pointer;
   width: 214px;
+  position: relative;
 
   &__thumbnail {
     transition: border-radius 300ms;
@@ -21,5 +22,26 @@
 
   &__title {
     text-align: left;
+  }
+
+  &__favorite {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-right-radius: 5px;
+    padding: 4px 8px;
+
+    &::before {
+      content: 'Favorite';
+      color: #fff;
+      padding-right: 8px;
+      font-size: 14px;
+    }
+    &--no-favorite {
+      span {
+        opacity: 0.5;
+      }
+    }
   }
 }
