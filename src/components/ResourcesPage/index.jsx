@@ -13,7 +13,7 @@ import './ResourcesPage.scss';
 
 const ResourcesPage = ({ type, orderByValue }) => {
   const navigate = useNavigate();
-  const [filterType, setFilterType] = useState();
+  const [filterType, setFilterType] = useState(filterOptions[type][0].id);
   const [filterText, setFilterText] = useState('');
   const [orderBy, setOrderBy] = useState();
   const filterRef = useRef(null);

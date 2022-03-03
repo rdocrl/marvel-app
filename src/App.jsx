@@ -9,24 +9,18 @@ import ResourcesPage from './components/ResourcesPage';
 import { resourceTypes } from './constants';
 import './App.scss';
 
+const ComicsPage = () => <ResourcesPage type={resourceTypes.COMIC} orderByValue="issueNumber" />;
+const CharactersPage = () => <ResourcesPage type={resourceTypes.CHARACTER} orderByValue="name" />;
+
 function App() {
   return (
     <div className="App">
       <NavBar />
       <div className="container">
         <Routes>
-          <Route
-            path="/comics"
-            element={<ResourcesPage type={resourceTypes.COMIC} orderByValue="issueNumber" />}
-          />
-          <Route
-            path="/"
-            element={<ResourcesPage type={resourceTypes.COMIC} orderByValue="issueNumber" />}
-          />
-          <Route
-            path="/characters"
-            element={<ResourcesPage type={resourceTypes.CHARACTER} orderByValue="name" />}
-          />
+          <Route path="/comics" element={<ComicsPage />} />
+          <Route path="/" element={<ComicsPage />} />
+          <Route path="/characters" element={<CharactersPage />} />
           <Route path="/comics/:id" element={<ComicDetailsPage />} />
           <Route path="/characters/:id" element={<CharacterDetailsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
