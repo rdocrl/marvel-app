@@ -15,9 +15,15 @@ REACT_APP_API_TS=1
 
 Run the application using
 
-### `npm test`
+### `npm start`
 
 Open http://localhost:3000 to view it in your browser.
+
+## Run tests
+
+Run tests using
+
+### `npm run tests`
 
 ## Deployed app
 

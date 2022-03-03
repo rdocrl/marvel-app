@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:update": "npm run test -- --coverage --watchAll=false -u"
+    "test:update": "npm run test -- --coverage --watchAll=false -u",
+    "tests": "npm run test -- --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": [
