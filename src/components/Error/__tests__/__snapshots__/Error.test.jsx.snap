@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorComponent /> tests Snapshots Should render 1`] = `
+<DocumentFragment>
+  <h2>
+    Something went wrong
+  </h2>
+  <img
+    alt="Something went wrong"
+    src="not-found.png"
+    width="300"
+  />
+</DocumentFragment>
+`;

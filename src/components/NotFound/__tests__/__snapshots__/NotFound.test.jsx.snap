@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> tests Snapshots Should render 1`] = `
+<DocumentFragment>
+  <h2>
+    404 - Not found
+  </h2>
+  <img
+    alt="oop - 404 not found"
+    src="not-found.png"
+    width="300"
+  />
+</DocumentFragment>
+`;

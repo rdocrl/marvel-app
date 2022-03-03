@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Menu /> tests Snapshots Should render 1`] = `
+<DocumentFragment>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="navbar__content"
+    >
+      <img
+        alt="Marvel"
+        src="logo.svg"
+        width="100"
+      />
+      <div
+        class="navbar__items"
+      >
+        <a
+          class="navbar__item"
+          href="/comics"
+        >
+          Comics
+        </a>
+        <a
+          class="navbar__item"
+          href="/characters"
+        >
+          Characters
+        </a>
+        <a
+          class="navbar__item"
+          href="/favorites"
+        >
+          Favorites
+        </a>
+      </div>
+    </div>
+  </nav>
+</DocumentFragment>
+`;

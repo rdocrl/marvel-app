@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Filter /> tests Snapshots Should render 1`] = `
+<DocumentFragment>
+  <section
+    class="filter"
+  >
+    <div
+      class="filter__types"
+    >
+      <div>
+        <input
+          id="nameStartsWith"
+          type="radio"
+          value="nameStartsWith"
+        />
+        <label
+          for="nameStartsWith"
+        >
+          Name
+        </label>
+      </div>
+      <div>
+        <input
+          id="comics"
+          type="radio"
+          value="comics"
+        />
+        <label
+          for="comics"
+        >
+          Comic
+        </label>
+      </div>
+      <div>
+        <input
+          id="stories"
+          type="radio"
+          value="stories"
+        />
+        <label
+          for="stories"
+        >
+          Story
+        </label>
+      </div>
+    </div>
+    <div
+      class="filter__text"
+    >
+      <img
+        src="search.png"
+      />
+      <input
+        placeholder="Search"
+        value=""
+      />
+    </div>
+  </section>
+</DocumentFragment>
+`;

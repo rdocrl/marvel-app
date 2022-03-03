@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> tests Snapshots Should render with no props 1`] = `
+<DocumentFragment>
+  <article
+    class="card"
+    title=""
+  >
+    <div
+      class="card__thumbnail--no-thumbnail"
+    >
+      Image not available
+    </div>
+    <div
+      class="card__favorite card__favorite--no-favorite"
+      title="Add favorite"
+    >
+      <span
+        class="card__star"
+      >
+        ⭐
+      </span>
+    </div>
+    <h3
+      class="card__title"
+    />
+  </article>
+</DocumentFragment>
+`;
+
+exports[`<Card /> tests Snapshots Should render with props 1`] = `
+<DocumentFragment>
+  <article
+    class="card"
+    title="See details"
+  >
+    <img
+      alt="Card title"
+      class="card__thumbnail"
+      src=""
+    />
+    <div
+      class="card__favorite card__favorite--no-favorite"
+      title="Add favorite"
+    >
+      <span
+        class="card__star"
+      >
+        ⭐
+      </span>
+    </div>
+    <h3
+      class="card__title"
+    >
+      Card title
+    </h3>
+  </article>
+</DocumentFragment>
+`;
