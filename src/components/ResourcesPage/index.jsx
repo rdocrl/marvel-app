@@ -8,7 +8,7 @@ import OrderByBtn from '../OrderByBtn';
 import ErrorComponent from '../Error';
 import CardsList from '../CardsList';
 import { getApiUrl } from '../../helpers';
-import { characterFilterOptions } from '../CharactersPage/constants';
+import { filterOptions } from '../../constants';
 import './ResourcesPage.scss';
 
 const ResourcesPage = ({ type, orderByValue }) => {
@@ -45,7 +45,7 @@ const ResourcesPage = ({ type, orderByValue }) => {
         <h1>{type.charAt(0).toUpperCase() + type.slice(1)}</h1>
         <div className="resources__options">
           <Filter
-            options={characterFilterOptions}
+            options={filterOptions[type]}
             onTypeChange={setFilterType}
             onTextChange={setFilterText}
             selected={filterType}
