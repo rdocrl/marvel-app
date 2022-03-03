@@ -1,28 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import useFavorite from '../../hooks/useFavorite';
-import Filter from '../Filter';
 import Loading from '../Loading';
+import Filter from '../Filter';
 import OrderByBtn from '../OrderByBtn';
 import ErrorComponent from '../Error';
 import CardsList from '../CardsList';
 import { getApiUrl } from '../../helpers';
-import { comicFilterOptions } from './constants';
-import { resourceTypes } from '../../constants';
-import './ComicsPage.scss';
+import { characterFilterOptions } from '../CharactersPage/constants';
+import './ResourcesPage.scss';
 
-const ComicsPage = () => {
+const ResourcesPage = ({ type, orderByValue }) => {
   const navigate = useNavigate();
   const [filterType, setFilterType] = useState();
   const [filterText, setFilterText] = useState('');
   const [orderBy, setOrderBy] = useState();
   const filterRef = useRef(null);
-  const [comics, isLoading, error] = useFetch(
+  const [resources, isLoading, error] = useFetch(
     getApiUrl(
-      '/comics',
+      `/${type}`,
       `${filterText && filterType ? `&${filterType}=${filterText}` : ''}${
-        orderBy ? `&orderBy=${orderBy === '-' ? '-' : ''}issueNumber` : ''
+        orderBy ? `&orderBy=${orderBy === '-' ? '-' : ''}${orderByValue}` : ''
       }`
     ),
     filterText ? 1000 : 0
@@ -33,20 +32,20 @@ const ComicsPage = () => {
     if (filterText?.current) {
       filterRef.current.focus();
     }
-  }, [comics]);
+  }, [resources]);
 
   const handleOrderBy = () => setOrderBy((orderBy) => (orderBy === '+' ? '-' : '+'));
 
   const handleCardClick = (url) => navigate(url);
 
   return (
-    <main className="comics">
+    <main className="resources">
       {isLoading && <Loading />}
-      <div className="comics__header">
-        <h1>Comics</h1>
-        <div className="comics__options">
+      <div className="resources__header">
+        <h1>{type.charAt(0).toUpperCase() + type.slice(1)}</h1>
+        <div className="resources__options">
           <Filter
-            options={comicFilterOptions}
+            options={characterFilterOptions}
             onTypeChange={setFilterType}
             onTextChange={setFilterText}
             selected={filterType}
@@ -57,15 +56,15 @@ const ComicsPage = () => {
         </div>
       </div>
       {error ? (
-        <div className="comics__error">
+        <div className="resources__error">
           <ErrorComponent />
         </div>
       ) : (
-        <section className="comics__list">
+        <section className="resources__list">
           <CardsList
-            data={comics}
+            data={resources}
             onClick={handleCardClick}
-            type={resourceTypes.COMIC}
+            type={type}
             favorites={favorites}
             onToggleFavorite={toggleFavorite}
           />
@@ -75,4 +74,4 @@ const ComicsPage = () => {
   );
 };
 
-export default ComicsPage;
+export default ResourcesPage;

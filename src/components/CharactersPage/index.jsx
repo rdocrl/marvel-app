@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import useFavorite from '../../hooks/useFavorite';
-import Card from '../Card';
 import Loading from '../Loading';
 import Filter from '../Filter';
 import OrderByBtn from '../OrderByBtn';
 import ErrorComponent from '../Error';
+import CardsList from '../CardsList';
 import { getApiUrl } from '../../helpers';
 import { characterFilterOptions } from './constants';
 import { resourceTypes } from '../../constants';
@@ -35,9 +35,9 @@ const CharactersPage = () => {
     }
   }, [characters]);
 
-  const handleOrderBy = () => {
-    setOrderBy((orderBy) => (orderBy === '+' ? '-' : '+'));
-  };
+  const handleOrderBy = () => setOrderBy((orderBy) => (orderBy === '+' ? '-' : '+'));
+
+  const handleCardClick = (url) => navigate(url);
 
   return (
     <main className="characters">
@@ -60,23 +60,16 @@ const CharactersPage = () => {
         <div className="characters__error">
           <ErrorComponent />
         </div>
-      ) : characters?.length ? (
-        <section className="characters__list">
-          {characters.map((c) => (
-            <Card
-              key={c.id}
-              title={c.name}
-              thumbnail={`${c.thumbnail.path}/portrait_incredible.${c.thumbnail.extension}`}
-              onClick={() => navigate(`/characters/${c.id}`)}
-              id={c.id}
-              isFavorite={favorites.some((f) => f.id === c.id)}
-              onToggleFavorite={toggleFavorite}
-              type={resourceTypes.CHARACTER}
-            />
-          ))}
-        </section>
       ) : (
-        <h2>No records found</h2>
+        <section className="characters__list">
+          <CardsList
+            data={characters}
+            onClick={handleCardClick}
+            type={resourceTypes.CHARACTER}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
+        </section>
       )}
     </main>
   );

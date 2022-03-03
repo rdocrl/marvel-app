@@ -3,13 +3,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getApiAuth, getApiUrl } from '../../helpers';
 import useFetch from '../../hooks/useFetch';
 import useFavorite from '../../hooks/useFavorite';
-import Card from '../Card';
 import Background from '../Background';
 import Detail from '../Detail';
 import ErrorComponent from '../Error';
 import Loading from '../Loading';
-import './CharacterDetailsPage.scss';
+import CardsList from '../CardsList';
 import { resourceTypes } from '../../constants';
+import './CharacterDetailsPage.scss';
 
 const CharacterDetailsPage = () => {
   const { id } = useParams();
@@ -59,42 +59,31 @@ const CharacterDetailsPage = () => {
   const character = characters[0];
   const thumbnail = `${character.thumbnail.path}/portrait_incredible.${character.thumbnail.extension}`;
 
+  const handleCardClick = (url) => navigate(url);
+
   return (
     <Background image={thumbnail}>
       <div className="character-details">
         <Detail title={character.name} description={character.description} thumbnail={thumbnail} />
         <h2>Comics</h2>
         <section className="character-details__list">
-          {comics.map((c) => (
-            <Card
-              key={c.id}
-              title={c.title}
-              thumbnail={`${c.thumbnail.path}/portrait_incredible.${c.thumbnail.extension}`}
-              onClick={() => navigate(`/comics/${c.id}`)}
-              id={c.id}
-              isFavorite={favorites.some((f) => f.id === c.id)}
-              onToggleFavorite={toggleFavorite}
-              type={resourceTypes.COMIC}
-            />
-          ))}
+          <CardsList
+            data={comics}
+            onClick={handleCardClick}
+            type={resourceTypes.COMIC}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
         </section>
         <h2>Stories</h2>
         <section className="character-details__list">
-          {stories.map((s) => (
-            <Card
-              key={s.id}
-              title={s.title}
-              thumbnail={
-                s.thumbnail
-                  ? `${s.thumbnail.path}/portrait_incredible.${s.thumbnail.extension}`
-                  : null
-              }
-              id={s.id}
-              isFavorite={favorites.some((f) => f.id === s.id)}
-              onToggleFavorite={toggleFavorite}
-              type={resourceTypes.STORY}
-            />
-          ))}
+          <CardsList
+            data={stories}
+            onClick={handleCardClick}
+            type={resourceTypes.STORY}
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
         </section>
       </div>
     </Background>
